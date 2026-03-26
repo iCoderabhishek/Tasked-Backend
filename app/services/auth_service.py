@@ -14,7 +14,6 @@ async def register_user(data):
         data={
             "email": data.email,
             "password": hash_password(data.password),
-            "role": data.role,
         }
     )
 
