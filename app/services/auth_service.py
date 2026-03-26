@@ -31,3 +31,13 @@ async def login_user(data):
     token = create_access_token({"user_id": user.id, "role": user.role})
 
     return {"access_token": token, "token_type": "bearer"}
+
+async def get_all_users():
+    return await db.user.find_many()
+
+async def delete_user(user_id: int):
+    user = await db.user.find_unique(where={"id": user_id})
+    if not user:
+        raise Exception("User not found")
+    await db.user.delete(where={"id": user_id})
+    return {"message": "User deleted successfully"}
