@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from app.schemas.user import UserCreate, UserLogin, UserResponse, TokenResponse
 from app.services.auth_service import register_user, login_user
+from app.core.dependencies import get_current_user, get_current_admin_user
 
 router = APIRouter()
 
@@ -21,3 +22,21 @@ async def login(data: UserLogin) -> TokenResponse:
         return user
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.get("/me")
+async def get_me(user = Depends(get_current_user)):
+    return {
+        "id": user.id,
+        "email": user.email,
+        "role": user.role
+    }
+
+
+@router.get("/admin/me")
+async def get_admin_me(user = Depends(get_current_admin_user)):
+    return {
+        "id": user.id,
+        "email": user.email,
+        "role": user.role
+    }
