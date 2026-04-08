@@ -6,6 +6,9 @@ RESTful API built with FastAPI and Prisma, featuring JWT authentication, role-ba
 ## Live Frontend URL
 https://github.com/iCoderabhishek/Tasked-Frontend.git
 
+## Fronend Repo
+https://tasked-frontend.vercel.app/
+
 
 ## Tech Stack
 - **Framework:** FastAPI (Python)
