@@ -2,6 +2,11 @@
 
 RESTful API built with FastAPI and Prisma, featuring JWT authentication, role-based access control (RBAC), and Task CRUD functionality.
 
+
+## Live Frontend URL
+https://github.com/iCoderabhishek/Tasked-Frontend.git
+
+
 ## Tech Stack
 - **Framework:** FastAPI (Python)
 - **Database:** PostgreSQL
